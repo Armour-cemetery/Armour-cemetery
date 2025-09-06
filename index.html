@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Armour Cemetery — Master Map</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Armour Cemetery — Master Map</h1>
+    <div class="controls">
+      <input id="search" placeholder="Search by name, lot, or family (e.g. 'Smith' or 'Lot 12')" />
+      <button id="searchBtn">Search</button>
+      <input id="fileInput" type="file" accept=".json,.csv" title="Upload CSV or JSON to import records" />
+    </div>
+  </header>
+
+  <main>
+    <section id="mapWrap">
+      <h2>Master Map</h2>
+      <div class="map-container">
+        <svg id="cemMap" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="800" height="500" fill="#e9f6ea"/>
+          <g id="lotsGroup">
+            <rect class="lot" id="lot-1" x="60" y="60" width="120" height="80" data-lot="1" />
+            <rect class="lot" id="lot-2" x="200" y="60" width="120" height="80" data-lot="2" />
+            <rect class="lot" id="lot-3" x="340" y="60" width="120" height="80" data-lot="3" />
+            <rect class="lot" id="lot-4" x="60" y="180" width="120" height="80" data-lot="4" />
+            <rect class="lot" id="lot-5" x="200" y="180" width="120" height="80" data-lot="5" />
+          </g>
+          <g id="lotLabels" font-size="14" font-family="sans-serif" fill="#153">
+            <text x="110" y="110" text-anchor="middle">Lot 1</text>
+            <text x="250" y="110" text-anchor="middle">Lot 2</text>
+            <text x="390" y="110" text-anchor="middle">Lot 3</text>
+            <text x="110" y="230" text-anchor="middle">Lot 4</text>
+            <text x="250" y="230" text-anchor="middle">Lot 5</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section id="results">
+      <h2>Search Results</h2>
+      <div id="resultsList">No search yet. Try a name or lot number.</div>
+    </section>
+  </main>
+
+  <div id="modal" class="hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button id="closeModal" class="close">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer>
+    <small>&copy; Armour Cemetery — Map prototype</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
